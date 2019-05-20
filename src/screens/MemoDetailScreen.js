@@ -19,7 +19,7 @@ class MemoDetailScreen extends React.Component {
   }
 
   returnMemo(memo) {
-    this.setState({ memo })
+    this.setState({ memo });
   }
 
   render() {

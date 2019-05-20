@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableHighlight, TouchableOpacity } from 'react-native';
 import firebase from 'firebase';
-import { NavigationActions, StackActions } from 'react-navigation';
+import { NavigationActions,StackActions } from 'react-navigation';
 
 
 class LoginScreen extends React.Component {
@@ -23,9 +23,7 @@ class LoginScreen extends React.Component {
         });
         this.props.navigation.dispatch(resetAction);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => {});
   }
 
   handlePress() {
@@ -41,7 +39,7 @@ class LoginScreen extends React.Component {
         <TextInput
           style={styles.input}
           value={this.state.email}
-          onChangeText={(text) => { this.setState({ 'email': text }); }}
+          onChangeText={(text) => { this.setState({ email: text }); }}
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="email"
@@ -49,7 +47,7 @@ class LoginScreen extends React.Component {
         <TextInput
           style={styles.input}
           value={this.state.password}
-          onChangeText={(text) => { this.setState({ 'password': text }); }}
+          onChangeText={(text) => { this.setState({ password: text }); }}
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="password"

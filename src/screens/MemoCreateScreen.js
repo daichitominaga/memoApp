@@ -19,9 +19,7 @@ class MemoCreateScreen extends React.Component {
       .then(() => {
         this.props.navigation.goBack();
       })
-      .catch((error) => {
-        console.log(error)
-      })
+      .catch(() => {});
   }
 
   render() {
@@ -31,7 +29,7 @@ class MemoCreateScreen extends React.Component {
           style={styles.memoEditInput}
           multiline
           value={this.state.body}
-          onChangeText={(text) => { this.setState({body: text}); }}
+          onChangeText={(text) => { this.setState({ body: text }); }}
         />
 
         <CircleButton name="check" style={styles.editButton} onPress={ this.handleSubmit.bind(this) } />

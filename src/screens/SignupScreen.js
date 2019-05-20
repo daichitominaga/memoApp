@@ -12,7 +12,7 @@ class SignupScreen extends React.Component {
 
   handleSubmit() {
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-      .then((user) => {
+      .then(() => {
         const resetAction = StackActions.reset({
           index: 0,
           actions: [
@@ -21,9 +21,7 @@ class SignupScreen extends React.Component {
         });
         this.props.navigation.dispatch(resetAction);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .catch(() => {});
   }
 
   render() {
@@ -35,7 +33,7 @@ class SignupScreen extends React.Component {
         <TextInput
           style={styles.input}
           value={this.state.email}
-          onChangeText={(text) => { this.setState({ 'email': text }); }}
+          onChangeText={(text) => { this.setState({ email: text }); }}
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="email"
@@ -43,7 +41,7 @@ class SignupScreen extends React.Component {
         <TextInput
           style={styles.input}
           value={this.state.password}
-          onChangeText={(text) => { this.setState({ 'password': text }); }}
+          onChangeText={(text) => { this.setState({ password: text }); }}
           autoCapitalize="none"
           autoCorrect={false}
           placeholder="password"
